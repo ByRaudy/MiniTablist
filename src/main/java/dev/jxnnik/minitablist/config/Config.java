@@ -62,7 +62,6 @@ public class Config {
         JsonObject tablist = new JsonObject();
 
         settings.addProperty("active", true);
-        settings.addProperty("animation", false);
 
         json.add("settings", settings);
 
