@@ -1,0 +1,4 @@
+name: MiniTablist
+version: 1.0.0-SNAPSHOT
+main: dev.jxnnik.minitablist.bungeecord.BungeecordSetup
+author: Jxnnik

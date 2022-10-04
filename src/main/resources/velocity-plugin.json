@@ -1,0 +1,10 @@
+{
+  "id": "minitablist",
+  "name": "MiniTablist",
+  "version": "1.0.0-SNAPSHOT",
+  "authors": [
+    "Jxnnik"
+  ],
+  "dependencies": [],
+  "main": "dev.jxnnik.minitablist.velocity.VelocitySetup"
+}
