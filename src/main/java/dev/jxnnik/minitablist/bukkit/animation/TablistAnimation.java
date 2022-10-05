@@ -32,22 +32,24 @@ public class TablistAnimation {
                 }
                 countdownState = (countdownState - 0.2);
 
-                Bukkit.getOnlinePlayers().forEach(player -> {
-                    player.sendPlayerListHeaderAndFooter(MiniMessage.miniMessage().deserialize(
-                                    BukkitSetup.getInstance().getMiniTablist().getHeader()
-                                            .replace("%online_players%", Bukkit.getOnlinePlayers().size() + "")
-                                            .replace("%max_players%", Bukkit.getMaxPlayers() + "")
-                                            .replace("<animation", "<gradient")
-                                            .replace("</animation", "</gradient")
-                                            .replace(":0", ":" + countdownState)),
-                            MiniMessage.miniMessage().deserialize(
-                                    BukkitSetup.getInstance().getMiniTablist().getFooter()
-                                            .replace("%online_players%", Bukkit.getOnlinePlayers().size() + "")
-                                            .replace("%max_players%", Bukkit.getMaxPlayers() + "")
-                                            .replace("<animation", "<gradient")
-                                            .replace("</animation", "</gradient")
-                                            .replace(":0", ":" + countdownState)));
-                });
+                if(BukkitSetup.getInstance().getMiniTablist().getPluginConfig().getJson().get("settings").getAsJsonObject().get("enabled").getAsBoolean()) {
+                    Bukkit.getOnlinePlayers().forEach(player -> {
+                        player.sendPlayerListHeaderAndFooter(MiniMessage.miniMessage().deserialize(
+                                        BukkitSetup.getInstance().getMiniTablist().getHeader()
+                                                .replace("%online_players%", Bukkit.getOnlinePlayers().size() + "")
+                                                .replace("%max_players%", Bukkit.getMaxPlayers() + "")
+                                                .replace("<animation", "<gradient")
+                                                .replace("</animation", "</gradient")
+                                                .replace(":0", ":" + countdownState)),
+                                MiniMessage.miniMessage().deserialize(
+                                        BukkitSetup.getInstance().getMiniTablist().getFooter()
+                                                .replace("%online_players%", Bukkit.getOnlinePlayers().size() + "")
+                                                .replace("%max_players%", Bukkit.getMaxPlayers() + "")
+                                                .replace("<animation", "<gradient")
+                                                .replace("</animation", "</gradient")
+                                                .replace(":0", ":" + countdownState)));
+                    });
+                }
             }
         }.runTaskTimerAsynchronously(plugin, 0, 4);
     }

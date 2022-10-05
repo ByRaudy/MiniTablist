@@ -30,24 +30,26 @@ public class TablistAnimation {
             }
             countdownState = (countdownState - 0.2);
 
-            server.getAllPlayers().forEach(player -> {
-                player.sendPlayerListHeaderAndFooter(MiniMessage.miniMessage().deserialize(
-                                VelocitySetup.getInstance().getMiniTablist().getHeader()
-                                        .replace("%online_players%", server.getAllPlayers().size() + "")
-                                        .replace("%max_players%", server.getConfiguration().getShowMaxPlayers() + "")
-                                        .replace("%server%", player.getCurrentServer().get().getServerInfo().getName())
-                                        .replace("<animation", "<gradient")
-                                        .replace("</animation", "</gradient")
-                                        .replace(":0", ":" + countdownState)),
-                        MiniMessage.miniMessage().deserialize(
-                                VelocitySetup.getInstance().getMiniTablist().getFooter()
-                                        .replace("%online_players%", server.getAllPlayers().size() + "")
-                                        .replace("%max_players%", server.getConfiguration().getShowMaxPlayers() + "")
-                                        .replace("%server%", player.getCurrentServer().get().getServerInfo().getName())
-                                        .replace("<animation", "<gradient")
-                                        .replace("</animation", "</gradient")
-                                        .replace(":0", ":" + countdownState)));
-            });
+            if(VelocitySetup.getInstance().getMiniTablist().getPluginConfig().getJson().get("settings").getAsJsonObject().get("enabled").getAsBoolean()) {
+                server.getAllPlayers().forEach(player -> {
+                    player.sendPlayerListHeaderAndFooter(MiniMessage.miniMessage().deserialize(
+                                    VelocitySetup.getInstance().getMiniTablist().getHeader()
+                                            .replace("%online_players%", server.getAllPlayers().size() + "")
+                                            .replace("%max_players%", server.getConfiguration().getShowMaxPlayers() + "")
+                                            .replace("%server%", player.getCurrentServer().get().getServerInfo().getName())
+                                            .replace("<animation", "<gradient")
+                                            .replace("</animation", "</gradient")
+                                            .replace(":0", ":" + countdownState)),
+                            MiniMessage.miniMessage().deserialize(
+                                    VelocitySetup.getInstance().getMiniTablist().getFooter()
+                                            .replace("%online_players%", server.getAllPlayers().size() + "")
+                                            .replace("%max_players%", server.getConfiguration().getShowMaxPlayers() + "")
+                                            .replace("%server%", player.getCurrentServer().get().getServerInfo().getName())
+                                            .replace("<animation", "<gradient")
+                                            .replace("</animation", "</gradient")
+                                            .replace(":0", ":" + countdownState)));
+                });
+            }
         }).repeat(200, TimeUnit.MILLISECONDS).schedule();
     }
 }

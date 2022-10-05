@@ -31,24 +31,26 @@ public class TablistAnimation {
             }
             countdownState = (countdownState - 0.2);
 
-            server.getPlayers().forEach(player -> {
-                player.setTabHeader(BungeeComponentSerializer.get().serialize(MiniMessage.miniMessage().deserialize(
-                                BungeecordSetup.getInstance().getMiniTablist().getHeader()
-                                        .replace("%online_players%", server.getPlayers().size() + "")
-                                        .replace("%max_players%", server.getConfigurationAdapter().getListeners().iterator().next().getMaxPlayers() + "")
-                                        .replace("%server%", player.getServer().getInfo().getName())
-                                        .replace("<animation", "<gradient")
-                                        .replace("</animation", "</gradient")
-                                        .replace(":0", ":" + countdownState))),
-                        BungeeComponentSerializer.get().serialize(MiniMessage.miniMessage().deserialize(
-                                BungeecordSetup.getInstance().getMiniTablist().getFooter()
-                                        .replace("%online_players%", server.getPlayers().size() + "")
-                                        .replace("%max_players%", server.getConfigurationAdapter().getListeners().iterator().next().getMaxPlayers() + "")
-                                        .replace("%server%", player.getServer().getInfo().getName())
-                                        .replace("<animation", "<gradient")
-                                        .replace("</animation", "</gradient")
-                                        .replace(":0", ":" + countdownState))));
-            });
+            if(BungeecordSetup.getInstance().getMiniTablist().getPluginConfig().getJson().get("settings").getAsJsonObject().get("enabled").getAsBoolean()) {
+                server.getPlayers().forEach(player -> {
+                    player.setTabHeader(BungeeComponentSerializer.get().serialize(MiniMessage.miniMessage().deserialize(
+                                    BungeecordSetup.getInstance().getMiniTablist().getHeader()
+                                            .replace("%online_players%", server.getPlayers().size() + "")
+                                            .replace("%max_players%", server.getConfigurationAdapter().getListeners().iterator().next().getMaxPlayers() + "")
+                                            .replace("%server%", player.getServer().getInfo().getName())
+                                            .replace("<animation", "<gradient")
+                                            .replace("</animation", "</gradient")
+                                            .replace(":0", ":" + countdownState))),
+                            BungeeComponentSerializer.get().serialize(MiniMessage.miniMessage().deserialize(
+                                    BungeecordSetup.getInstance().getMiniTablist().getFooter()
+                                            .replace("%online_players%", server.getPlayers().size() + "")
+                                            .replace("%max_players%", server.getConfigurationAdapter().getListeners().iterator().next().getMaxPlayers() + "")
+                                            .replace("%server%", player.getServer().getInfo().getName())
+                                            .replace("<animation", "<gradient")
+                                            .replace("</animation", "</gradient")
+                                            .replace(":0", ":" + countdownState))));
+                });
+            }
         }, 1, 200, TimeUnit.MILLISECONDS);
     }
 }
