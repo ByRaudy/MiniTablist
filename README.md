@@ -2,7 +2,7 @@
 Multi-platform tablist plugin with animations, gradients and custom colors.
 
 ## Download
-- Spigot.org/123
+- [SpigotMC](https://www.spigotmc.org/resources/minitablist-tablist-plugin-with-animations-and-rgb-gradients.105628/)
 
 ## Support
 
