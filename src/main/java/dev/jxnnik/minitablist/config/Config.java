@@ -65,8 +65,8 @@ public class Config {
 
         json.add("settings", settings);
 
-        tablist.addProperty("header", "\n <rainbow>MiniTablist - v1.0</rainbow> \n <gradient:#d67624:#fed13f>Online players: %online_players%/%max_players%</gradient> \n");
-        tablist.addProperty("footer", "\n <gradient:#ec5fed:#b32090>Plugin by Jxnnik(.dev)</gradient> \n <animation:#fed13f:#d20606:0>This is a animation</animation>\n");
+        tablist.addProperty("header", "\n <rainbow>Welcome to MiniTablist - v1.0</rainbow> \n <gradient:#d67624:#fed13f>Your name: %player% | Online players: %online_players%/%max_players%</gradient> \n");
+        tablist.addProperty("footer", "\n <gradient:#ec5fed:#b32090>Plugin by ByRaudy(jxnnik.dev)</gradient> \n <animation:#fed13f:#d20606:0>This is a animation</animation>\n");
 
         json.add("tablist", tablist);
     }

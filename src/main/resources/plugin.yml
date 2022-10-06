@@ -1,7 +1,7 @@
 name: MiniTablist
 version: '${version}'
 main: dev.jxnnik.minitablist.bukkit.BukkitSetup
-authors: [ Jxnnik ]
+authors: [ ByRaudy ]
 description: A tablist plugin with configuratible animation, header and footer
 website: https://jxnnik.dev
 

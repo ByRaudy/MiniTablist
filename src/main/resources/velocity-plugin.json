@@ -3,7 +3,7 @@
   "name": "MiniTablist",
   "version": "1.0.0-SNAPSHOT",
   "authors": [
-    "Jxnnik"
+    "ByRaudy"
   ],
   "dependencies": [],
   "main": "dev.jxnnik.minitablist.velocity.VelocitySetup"

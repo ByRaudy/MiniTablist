@@ -37,6 +37,7 @@ public class TablistAnimation {
                                             .replace("%online_players%", server.getAllPlayers().size() + "")
                                             .replace("%max_players%", server.getConfiguration().getShowMaxPlayers() + "")
                                             .replace("%server%", player.getCurrentServer().get().getServerInfo().getName())
+                                            .replace("%player%", player.getUsername())
                                             .replace("<animation", "<gradient")
                                             .replace("</animation", "</gradient")
                                             .replace(":0", ":" + countdownState)),
@@ -45,6 +46,7 @@ public class TablistAnimation {
                                             .replace("%online_players%", server.getAllPlayers().size() + "")
                                             .replace("%max_players%", server.getConfiguration().getShowMaxPlayers() + "")
                                             .replace("%server%", player.getCurrentServer().get().getServerInfo().getName())
+                                            .replace("%player%", player.getUsername())
                                             .replace("<animation", "<gradient")
                                             .replace("</animation", "</gradient")
                                             .replace(":0", ":" + countdownState)));

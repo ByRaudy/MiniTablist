@@ -38,6 +38,7 @@ public class TablistAnimation {
                                         BukkitSetup.getInstance().getMiniTablist().getHeader()
                                                 .replace("%online_players%", Bukkit.getOnlinePlayers().size() + "")
                                                 .replace("%max_players%", Bukkit.getMaxPlayers() + "")
+                                                .replace("%player%", player.getName())
                                                 .replace("<animation", "<gradient")
                                                 .replace("</animation", "</gradient")
                                                 .replace(":0", ":" + countdownState)),
@@ -45,12 +46,13 @@ public class TablistAnimation {
                                         BukkitSetup.getInstance().getMiniTablist().getFooter()
                                                 .replace("%online_players%", Bukkit.getOnlinePlayers().size() + "")
                                                 .replace("%max_players%", Bukkit.getMaxPlayers() + "")
+                                                .replace("%player%", player.getName())
                                                 .replace("<animation", "<gradient")
                                                 .replace("</animation", "</gradient")
                                                 .replace(":0", ":" + countdownState)));
                     });
                 }
             }
-        }.runTaskTimerAsynchronously(plugin, 0, 4);
+        }.runTaskTimerAsynchronously(plugin, 0, 3);
     }
 }
