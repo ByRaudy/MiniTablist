@@ -8,20 +8,17 @@ import com.google.gson.JsonParser;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Config {
 
     private final File file;
     private final Gson gson;
-    private final ExecutorService pool;
     private JsonObject json;
 
     public Config() {
         this.file = new File("plugins/MiniTablist", "config.json");
         this.gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-        this.pool = Executors.newFixedThreadPool(2);
         this.initFile();
     }
 
@@ -43,7 +40,7 @@ public class Config {
     }
 
     public void save() {
-        pool.execute(() -> {
+        Executors.newFixedThreadPool(2).execute(() -> {
             try (OutputStreamWriter writer = new OutputStreamWriter(Files.newOutputStream(file.toPath()), StandardCharsets.UTF_8)) {
                 gson.toJson(json, writer);
             } catch (IOException ex) {

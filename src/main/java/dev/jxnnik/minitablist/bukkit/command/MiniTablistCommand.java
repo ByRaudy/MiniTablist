@@ -32,7 +32,11 @@ public class MiniTablistCommand implements CommandExecutor {
             } else {
                 player.sendMessage(MiniMessage.miniMessage().deserialize("<rainbow>MiniTablist - v1.0-DEVELOPMENT by Jxnnik(.dev)</rainbow>"));
             }
+
+            return false;
         }
+
+
         if(args.length == 1) {
             if(args[0].equals("reload")) {
                 Bukkit.getConsoleSender().sendMessage(MiniMessage.miniMessage().deserialize("<#6FAF72>Successfully reloaded config.json!"));
